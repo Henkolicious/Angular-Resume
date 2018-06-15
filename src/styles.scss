@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+// 1. abstract
+@import "~sass/abstracts/functions";
+@import "~sass/abstracts/mixins";
+@import "~sass/abstracts/variables";
+
+// 2. base
+@import "~sass/base/animations";
+@import "~sass/base/base";
+@import "~sass/base/fonts";
+@import "~sass/base/helpers";
+@import "~sass/base/typography";
+@import "~sass/base/utilities";
+
+// 3. components
+@import "~sass/components/button";
+@import "~sass/components/global-spinner";
+
+// 4. layout
+@import "~sass/layout/footer";
+@import "~sass/layout/grid";
+
+// 5. pages
+
+
+// 6. themes
+@import "~sass/themes/default";
+
+// 7. vendor
+@import "~sass/vendor/material";

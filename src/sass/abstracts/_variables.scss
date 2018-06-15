@@ -1,0 +1,40 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+// COLORS
+$color-primary: rgb(63, 81, 181);
+$color-primary-light: rgb(97, 118, 240);
+$color-primary-dark: rgb(46, 64, 170);
+
+$color-secondary: #333333;
+$color-secondary-light: #444444;
+$color-secondary-dark: #222222;
+
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
+$color-text: #222222;
+$color-gray-light: #eee;
+$color-gray-mid: #999;
+$color-gray-dark: #444;
+$color-white: #fff;
+$color-black: #000;
+
+$color-global-spinner-outer: $color-primary;
+$color-global-spinner-middle: $color-primary-light;
+$color-global-spinner-inner: $color-primary-dark;
+$color-global-spinner-background: black;
+
+// FONT
+$default-font-size: 1.6rem;
+
+// GRID
+$grid-width: 114rem;
+$grid-gutter-vertical: 8rem;
+$grid-gutter-vertical-small: 6rem;
+$grid-gutter-horizontal: 6rem;
+
+// PADDING
+$padding-largescreen: 0rem;
+$padding-mediumscreen: 0rem;
+$padding-smallscreen: 0rem;

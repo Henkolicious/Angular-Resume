@@ -1,0 +1,35 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+span.mat-option-text {
+  font-size: 1em !important;
+}
+.mat-option-text {
+  font-size: 1rem;
+  text-align: center;
+}
+
+// .mat-option.ng-star-inserted {
+//   padding: 0;
+//   margin: 0 auto;
+//   width: 100%;
+//   max-width: 3rem;
+// }
+// .mat-selected.mat-active {
+//   width: 100%;
+// }

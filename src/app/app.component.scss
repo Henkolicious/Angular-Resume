@@ -1,0 +1,11 @@
+@import "~sass/abstracts/variables";
+@import "~sass/abstracts/mixins";
+
+.application {
+  width: 70%;
+  margin: 0 auto;
+
+  @include respond(tab-port){
+    width: 100%;
+  }
+}

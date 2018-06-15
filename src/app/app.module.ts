@@ -1,18 +1,59 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { HttpClientModule } from "@angular/common/http";
 
+/* animations */
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { AppComponent } from './app.component';
+/* Routes */
+import { AppRoutingModule } from "./router/routes";
 
+/* Services */
+import { DataAccessService } from "./services/data-access.service";
+import { NavbarComponent } from "./shared/components/navbar/navbar.component";
+
+/* vendor */
+import {
+  MatTableModule,
+  MatSortModule,
+  MatPaginatorModule,
+  MatFormFieldModule,
+  MatInputModule
+} from "@angular/material";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
+/* components*/
+import { AppComponent } from "./app.component";
+import { AboutComponent } from "./pages/about/about.component";
+import { EducationComponent } from "./pages/education/education.component";
+import { SkillsComponent } from "./pages/skills/skills.component";
+import { ContactComponent } from "./pages/contact/contact.component";
+import { ProgrammingTableComponent } from "./pages/skills/programming-table/programming-table.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    AboutComponent,
+    EducationComponent,
+    SkillsComponent,
+    ContactComponent,
+    ProgrammingTableComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
-  providers: [],
+  providers: [DataAccessService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
