@@ -12,6 +12,8 @@ import { AppRoutingModule } from "./router/routes";
 import { DataAccessService } from "./services/data-access.service";
 import { NavbarComponent } from "./shared/components/navbar/navbar.component";
 
+import { SafeHtmlPipe } from './pipes/safe-html';
+
 /* vendor */
 import {
   MatTableModule,
@@ -38,7 +40,8 @@ import { ProgrammingTableComponent } from "./pages/skills/programming-table/prog
     EducationComponent,
     SkillsComponent,
     ContactComponent,
-    ProgrammingTableComponent
+    ProgrammingTableComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
