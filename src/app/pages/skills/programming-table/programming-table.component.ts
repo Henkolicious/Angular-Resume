@@ -3,7 +3,7 @@ import {
   OnInit,
   ViewChild,
   ViewEncapsulation,
-  AfterViewInit
+  HostListener
 } from "@angular/core";
 import { ProgrammingLanguage } from "../../../models/interfaces/ProgrammingLanguage";
 import { MatPaginator, MatSort, MatTableDataSource } from "@angular/material";
@@ -12,16 +12,20 @@ import { DataAccessService } from "../../../services/data-access.service";
 @Component({
   selector: "app-programming-table",
   templateUrl: "./programming-table.component.html",
-  styleUrls: ["./programming-table.component.scss"],
-  // To override css on material tables
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ["./programming-table.component.scss"]
 })
-export class ProgrammingTableComponent implements OnInit, AfterViewInit {
-  displayedColumns = ["id", "language", "knowledge", "description"];
+export class ProgrammingTableComponent implements OnInit {
+  displayedColumns = ["Id", "Language", "Knowledge", "Description"];
   dataSource: MatTableDataSource<ProgrammingLanguage>;
+  programmingLanguage: ProgrammingLanguage[] = [];
+  dataHeaders: string[] = [];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  @HostListener("window:resize", ["$event"])
+  onResize(event) {
+    this.setDispayedTableColumns(event.target.innerWidth);
+  }
 
   constructor(private _dao: DataAccessService) {}
 
@@ -30,12 +34,23 @@ export class ProgrammingTableComponent implements OnInit, AfterViewInit {
       (data: ProgrammingLanguage[]) => {
         this.bindProgrammingData(data);
       },
-      (error: any) => console.log(error)
+      (error: any) => {
+        console.log(error);
+      }
     );
+    this.setDispayedTableColumns(window.innerWidth);
   }
 
-  ngAfterViewInit() {
-    //console.log(this.dataSource.sort);
+  setDispayedTableColumns(width: number) {
+    this.displayedColumns =
+      width <= 900
+        ? ["Language", "Knowledge", "Description"]
+        : ["Id", "Language", "Knowledge", "Description"];
+
+    this.dataHeaders =
+      width <= 900
+        ? ["#", "Lang.", "Knowl.", "Desc."]
+        : ["#", "Language", "Knowledge", "Description"];
   }
 
   bindProgrammingData(data: ProgrammingLanguage[]) {

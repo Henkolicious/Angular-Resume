@@ -52,7 +52,7 @@ export class DataAccessService {
   public getProgrammingLanguages(): Observable<ProgrammingLanguage[]> {
     return this.http.get<ProgrammingLanguage[]>(this.programmingLanguageUrl).pipe(
       retry(3),
-      catchError(() =>
+      catchError(() =>        
         Observable.throw("ERROR: Could not get programming data table from the server.")
       )
     );

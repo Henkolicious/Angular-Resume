@@ -16,11 +16,12 @@ import { SafeHtmlPipe } from './pipes/safe-html';
 
 /* vendor */
 import {
+  MatInputModule,
   MatTableModule,
-  MatSortModule,
   MatPaginatorModule,
-  MatFormFieldModule,
-  MatInputModule
+  MatSortModule,
+  MatProgressSpinnerModule,
+  MatFormFieldModule
 } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
@@ -54,7 +55,8 @@ import { ProgrammingTableComponent } from "./pages/skills/programming-table/prog
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule
   ],
   providers: [DataAccessService],
   bootstrap: [AppComponent]

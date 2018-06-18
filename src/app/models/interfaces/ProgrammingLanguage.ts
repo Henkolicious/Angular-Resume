@@ -1,6 +1,6 @@
 export interface ProgrammingLanguage {
-    id: number;
-    language: string;
-    knowledge: string;
-    description: string;
+    Id: number;
+    Language: string;
+    Knowledge: number;
+    Description: string;
 }
