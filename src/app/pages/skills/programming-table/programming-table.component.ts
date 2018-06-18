@@ -17,11 +17,11 @@ import { DataAccessService } from "../../../services/data-access.service";
 export class ProgrammingTableComponent implements OnInit {
   displayedColumns = ["Id", "Language", "Knowledge", "Description"];
   dataSource: MatTableDataSource<ProgrammingLanguage>;
-  programmingLanguage: ProgrammingLanguage[] = [];
   dataHeaders: string[] = [];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+
   @HostListener("window:resize", ["$event"])
   onResize(event) {
     this.setDispayedTableColumns(event.target.innerWidth);
