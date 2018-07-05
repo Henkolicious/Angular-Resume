@@ -1,4 +1,4 @@
-export interface ProgrammingLanguage {
+export interface IProgrammingLanguage {
     Id: number;
     Language: string;
     Knowledge: number;

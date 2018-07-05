@@ -2,9 +2,9 @@
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
 // COLORS
-$color-primary: rgb(63, 81, 181);
-$color-primary-light: rgb(97, 118, 240);
-$color-primary-dark: rgb(46, 64, 170);
+$color-primary: #3bf376;
+$color-primary-light: #c6fdc3;
+$color-primary-dark: #37cf67;
 
 $color-secondary: #333333;
 $color-secondary-light: #444444;
@@ -29,7 +29,7 @@ $color-global-spinner-background: black;
 $default-font-size: 1.6rem;
 
 // GRID
-$grid-width: 114rem;
+$grid-width: 100%;
 $grid-gutter-vertical: 8rem;
 $grid-gutter-vertical-small: 6rem;
 $grid-gutter-horizontal: 6rem;

@@ -1,0 +1,72 @@
+@import "~sass/abstracts/variables";
+@import "~sass/abstracts/mixins";
+@import "~sass/base/animations";
+
+.profile {
+  &__header {
+    animation: moveInLeft 1s ease-in-out;
+    color: $color-black;
+    font-size: 3rem;
+  }
+
+  &__list {
+  }
+
+  &__listwrapper {
+    margin-top: 1rem;
+  }
+
+  &__table {
+    color: $color-black;
+    margin: 0 0 2rem 0;
+    width: 100%;
+
+    @include respond(tab-port) {
+      margin: 0 auto;
+    }
+  }
+
+  &__row {
+    // box-sizing: border-box;
+
+    &:nth-child(odd) {
+      background-color: $color-white;
+      color: $color-text;
+    }
+
+    &:nth-child(even) {
+      background-color: $color-primary-light;
+      color: $color-text;
+    }
+
+    &:hover {
+      background-color: $color-secondary;
+      color: $color-white;
+    }
+  }
+
+  &__cell {
+    width: 50%;
+    font-size: 2rem;
+    padding-left: 2rem;
+  }
+
+  &__links > i {
+    font-size: 3.5rem;
+    color: $color-primary-dark;
+    cursor: pointer;
+
+    &:not(:first-child) {
+      margin-left: 2rem;
+    }
+
+    &:hover {
+      color: $color-secondary-dark;
+    }
+  }
+}
+
+.img-cover {
+  object-fit: cover ;
+  width: 100%;
+}

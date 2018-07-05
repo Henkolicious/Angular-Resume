@@ -1,0 +1,28 @@
+@import "~sass/abstracts/variables";
+@import "~sass/abstracts/mixins";
+
+.general {
+  &__header {
+    font-size: 3rem;
+  }
+
+  &__language {
+    &__header {
+      font-size: 2.5rem;
+    }
+
+    &__item {
+      margin-left: 2rem;
+      &::before {
+        content: "• ";
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__hr {
+    color: $color-primary;
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
+}

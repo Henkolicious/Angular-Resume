@@ -1,26 +1,20 @@
-<div class="navigation u-box-shadow">
-  <nav class="navigation__nav">
-    <ul class="navigation__list">
-      <a class="navigation__link">
-        <li class="navigation__item" [routerLinkActive]="['link-active']" [routerLink]="['/about']">
-          About
+<div class="navbar-wrapper">
+  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark black" [containerInside]="false">
+    <links>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link waves-light" [routerLink]="['/about']" mdbWavesEffect>About</a>
         </li>
-      </a>
-      <a class="navigation__link">
-        <li class="navigation__item" [routerLinkActive]="['link-active']" [routerLink]="['/education']">
-          Education
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link waves-light" [routerLink]="['/education']" mdbWavesEffect>Education</a>
         </li>
-      </a>
-      <a class="navigation__link">
-        <li class="navigation__item" [routerLinkActive]="['link-active']" [routerLink]="['/skills']">
-          Skills
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link waves-light" [routerLink]="['/skills']" mdbWavesEffect>Skills</a>
         </li>
-      </a>
-      <a class="navigation__link">
-        <li class="navigation__item" [routerLinkActive]="['link-active']" [routerLink]="['/contact']">
-          Contact
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link waves-light" [routerLink]="['/contact']" mdbWavesEffect>Contact</a>
         </li>
-      </a>
-    </ul>
-  </nav>
+      </ul>
+    </links>
+  </mdb-navbar>
 </div>

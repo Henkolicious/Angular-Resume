@@ -1,21 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { DataAccessService } from './services/data-access.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'app';
+export class AppComponent {
 
-  constructor(private _dao: DataAccessService) {}
-
-  ngOnInit(){
-    //   this._dao.getProfile().subscribe(data => {
-    //   console.log(data);
-    // });
-  }
+  constructor() {}
   
   ngAfterViewInit() {
     document.getElementById("global-spinner").style.display = 'none';

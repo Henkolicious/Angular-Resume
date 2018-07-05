@@ -1,13 +1,12 @@
 import {
   Component,
   OnInit,
-  ViewChild,
-  ViewEncapsulation,
+  ViewChild,  
   HostListener
 } from "@angular/core";
-import { ProgrammingLanguage } from "../../../models/interfaces/ProgrammingLanguage";
+import { IProgrammingLanguage } from "../../../models/interfaces/IProgrammingLanguage";
 import { MatPaginator, MatSort, MatTableDataSource } from "@angular/material";
-import { DataAccessService } from "../../../services/data-access.service";
+import { DataAccessService } from "../../services/data-access.service";
 
 @Component({
   selector: "app-programming-table",
@@ -16,7 +15,7 @@ import { DataAccessService } from "../../../services/data-access.service";
 })
 export class ProgrammingTableComponent implements OnInit {
   displayedColumns = ["Id", "Language", "Knowledge", "Description"];
-  dataSource: MatTableDataSource<ProgrammingLanguage>;
+  dataSource: MatTableDataSource<IProgrammingLanguage>;
   dataHeaders: string[] = [];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -31,7 +30,7 @@ export class ProgrammingTableComponent implements OnInit {
 
   ngOnInit() {
     this._dao.getProgrammingLanguages().subscribe(
-      (data: ProgrammingLanguage[]) => {
+      (data: IProgrammingLanguage[]) => {
         this.bindProgrammingData(data);
       },
       (error: any) => {
@@ -53,7 +52,7 @@ export class ProgrammingTableComponent implements OnInit {
         : ["#", "Language", "Knowledge", "Description"];
   }
 
-  bindProgrammingData(data: ProgrammingLanguage[]) {
+  bindProgrammingData(data: IProgrammingLanguage[]) {
     this.dataSource = new MatTableDataSource(data);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;

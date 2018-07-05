@@ -1,5 +1,6 @@
+/* core */
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, NO_ERRORS_SCHEMA  } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 
 /* animations */
@@ -9,10 +10,11 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from "./router/routes";
 
 /* Services */
-import { DataAccessService } from "./services/data-access.service";
+import { DataAccessService } from "./shared/services/data-access.service";
 import { NavbarComponent } from "./shared/components/navbar/navbar.component";
 
-import { SafeHtmlPipe } from './pipes/safe-html';
+/* pipes */
+import { SafeHtmlPipe } from './shared/pipes/safe-html';
 
 /* vendor */
 import {
@@ -24,14 +26,17 @@ import {
   MatFormFieldModule
 } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
-/* components*/
+/* components */
 import { AppComponent } from "./app.component";
 import { AboutComponent } from "./pages/about/about.component";
 import { EducationComponent } from "./pages/education/education.component";
 import { SkillsComponent } from "./pages/skills/skills.component";
 import { ContactComponent } from "./pages/contact/contact.component";
-import { ProgrammingTableComponent } from "./pages/skills/programming-table/programming-table.component";
+import { ProgrammingTableComponent } from "./shared/components/programming-table/programming-table.component";
+import { ProfileComponent } from './shared/components/profile/profile.component';
+import { GeneralComponent } from './shared/components/general/general.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,9 @@ import { ProgrammingTableComponent } from "./pages/skills/programming-table/prog
     SkillsComponent,
     ContactComponent,
     ProgrammingTableComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    ProfileComponent,
+    GeneralComponent
   ],
   imports: [
     BrowserModule,
@@ -56,9 +63,11 @@ import { ProgrammingTableComponent } from "./pages/skills/programming-table/prog
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [DataAccessService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule {}

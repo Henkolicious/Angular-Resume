@@ -1,0 +1,16 @@
+<div class="general">
+  <div class="general__header">General information</div>
+  <p class="general__description" *ngFor="let desc of descriptions">
+    {{ desc }}
+  </p>
+  <hr class="general__hr"/>
+  <div class="general__language">
+    <div class="general__language__header">
+      Languages:
+    </div>
+    <ul>
+      <li class="general__language__item">{{ mainLanguage }}</li>
+      <li class="general__language__item">{{ secondaryLanguage }}</li>
+    </ul>
+  </div>
+</div>

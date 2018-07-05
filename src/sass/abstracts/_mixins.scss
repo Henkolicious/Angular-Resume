@@ -33,6 +33,8 @@ $breakpoint arguement choices:
 
 Use em over rem here.
 
+PX to EM converter: https://www.w3schools.com/tags/ref_pxtoemconversion.asp
+
 */
 @mixin respond($breakpoint) {
   @if $breakpoint == phone {
@@ -41,7 +43,7 @@ Use em over rem here.
     } //600px
   }
   @if $breakpoint == tab-port {
-    @media only screen and (max-width: 56.25em) {
+    @media only screen and (max-width: 61.9375em) {
       @content;
     } //900px
   }
