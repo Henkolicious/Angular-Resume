@@ -9,6 +9,10 @@
   font-size: 1.5rem !important;
 }
 
+.icon-color {
+  color: $color-primary-light;
+}
+
 .nav-item:not(:first-child) {
   margin-left: 1rem;
 
