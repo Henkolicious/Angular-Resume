@@ -5,7 +5,9 @@ header('Access-Control-Allow-Origin: *');
 $arr = array(
     array(
         "Id" => "1",
-        "From" => "2016 - ",
+        "Prefix" => "",
+        "From" => "2016",
+        "Dividor" => "-",
         "To" => "Today",
         "Employer" => "Sogeti Sverige AB",
         "EmployerLogo" => "assets/images/sogeti_logo.png",
@@ -14,7 +16,9 @@ $arr = array(
     ),
     array(
         "Id" => "1",
-        "From" => "2014 & ",
+        "Prefix" => "Summer",
+        "From" => "2014",
+        "Dividor" => "&",
         "To" => "2015",
         "Employer" => "Menigo AB",
         "EmployerLogo" => "assets/images/menigo_logo.jpg",
@@ -23,7 +27,9 @@ $arr = array(
     ),
     array(
         "Id" => "1",
-        "From" => "2012 - ",
+        "Prefix" => "",
+        "From" => "2012",
+        "Dividor" => "-",
         "To" => "2013",
         "Employer" => "MittMedia Print",
         "EmployerLogo" => "assets/images/mittmedia_logo.png",
@@ -32,7 +38,9 @@ $arr = array(
     ),
     array(
         "Id" => "1",
+        "Prefix" => "",
         "From" => "2011",
+        "Dividor" => "",
         "To" => "",
         "Employer" => "IKEA",
         "EmployerLogo" => "assets/images/ikea_logo.png",
@@ -42,7 +50,9 @@ $arr = array(
     ),
     array(
         "Id" => "1",
-        "From" => "2006 - ",
+        "Prefix" => "",
+        "From" => "2006",
+        "Dividor" => "-",
         "To" => "2010",
         "Employer" => "Circle K",
         "EmployerLogo" => "assets/images/circlek_logo.jpg",

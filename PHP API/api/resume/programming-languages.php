@@ -121,7 +121,7 @@ $arr = array(
         "Id" => 1337,
         "Language" => "Ping pong 🏓",
         "Knowledge" => 100,
-        "Description" => "I'm better than you, challange accepted? 🙊",
+        "Description" => "I'm better than you, challange accepted? 🙈",
     )
 );
 

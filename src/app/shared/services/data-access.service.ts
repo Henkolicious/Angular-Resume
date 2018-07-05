@@ -5,7 +5,7 @@ import { catchError, retry } from "rxjs/operators";
 import { environment } from "../../../environments/environment";
 
 /* Models */
-import { Employment } from "../../models/interfaces/Employment";
+import { IEmployment } from "../../models/interfaces/IEmployment";
 import { IProfile } from "../../models/interfaces/IProfile";
 import { IProgrammingLanguage } from "../../models/interfaces/IProgrammingLanguage";
 
@@ -39,8 +39,8 @@ export class DataAccessService {
     );
   }
 
-  public getEmplyments(): Observable<Employment[]> {
-    return this.http.get<Employment[]>(this.apiEmplymentUrl).pipe(
+  public getEmplyments(): Observable<IEmployment[]> {
+    return this.http.get<IEmployment[]>(this.apiEmplymentUrl).pipe(
       retry(3),
       catchError(() =>
         Observable.throw(

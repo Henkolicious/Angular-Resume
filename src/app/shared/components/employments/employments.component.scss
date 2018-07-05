@@ -1,0 +1,68 @@
+@import "~sass/abstracts/variables";
+@import "~sass/abstracts/mixins";
+
+.employment {
+  &__lowres {
+    display: none;
+
+    @include respond(tab-port) {
+      display: initial;
+    }
+  }
+
+  &__highres {
+    display: initial;
+
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
+
+  &__header {
+    font-size: 3rem;
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 2rem;
+
+    @include respond(tab-port) {
+      margin: 0;
+    }
+  }
+
+  // LHS
+  &__period {
+    font-size: 1.5rem;
+    @include respond(tab-port) {
+      margin-bottom: 5rem;
+    }
+
+    &-prefix {
+      font-size: 1.7rem;
+    }
+  }
+
+  // RHS
+  &__heading {
+    font-weight: bold;
+  }
+
+  &__hr {
+    @include hr;
+  }
+
+  // &__logo:not(:last-child) {
+  //     @include respond(tab-port) {
+  //         margin-bottom: 2rem;
+  //     }
+  // }
+
+  &__logo > img {
+    width: 100%;
+    height: auto;
+  }
+
+  &__description {
+    font-size: 1.7rem;
+  }
+}

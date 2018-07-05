@@ -26,7 +26,7 @@ $arr = array(
         "Some spare times intrests are workouts (gym mostly), playing a variaty of sports and some brain teasing puzzles or games."
     ),
     "MainLanguage" => "Swedish, mother tongue",
-    "SecondaryLanguage" => "English, excellent *Mr Burns - Simpsons*",
+    "SecondaryLanguage" => "English, excellent",
 );
 
 echo json_encode($arr, JSON_PRETTY_PRINT);

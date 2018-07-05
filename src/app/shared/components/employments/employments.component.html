@@ -1,0 +1,59 @@
+<div class="employment">
+  <div class="employment__header">Employments</div>
+  <div class="employment__list">
+    <hr class="employment__hr" />
+    <div class="employment__item" *ngFor="let item of employments">
+
+      <div class="custom-row">
+
+        <!-- low resolution -->
+        <div class="employment__lowres">
+          <div class="col-3-of-4">
+            <div class="employment__heading">
+              {{ item.Employer }}
+            </div>
+            <div class="employment__description">
+              {{ item.Description }}
+            </div>
+          </div>
+
+          <div class="col-1-of-4">
+            <div class="employment__logo u-box-shadow view hm-green-slight waves-dark" mdbWavesEffect>
+              <img src="{{ item.EmployerLogo }}" alt="logo" />
+            </div>
+            <div class="employment__period u-center-text">
+              <div class="employment__period-prefix">{{ item.Prefix }}</div>
+              {{ item.From }} {{ item.Dividor }} {{ item.To }}
+            </div>
+          </div>
+        </div>
+
+        <!-- high resolution -->
+        <div class="employment__highres">
+          <div class="col-1-of-4">
+            <div class="employment__logo u-box-shadow view hm-green-slight waves-dark" mdbWavesEffect>
+              <img src="{{ item.EmployerLogo }}" alt="logo" />
+            </div>
+            <div class="employment__period u-center-text">
+              <div class="employment__period-prefix">{{ item.Prefix }}</div>
+              {{ item.From }} {{ item.Dividor }} {{ item.To }}
+            </div>
+          </div>
+
+          <div class="col-3-of-4">
+            <div class="employment__heading">
+              {{ item.Employer }}
+            </div>
+            <div class="employment__description">
+              {{ item.Description }}
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>

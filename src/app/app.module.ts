@@ -37,6 +37,7 @@ import { ContactComponent } from "./pages/contact/contact.component";
 import { ProgrammingTableComponent } from "./shared/components/programming-table/programming-table.component";
 import { ProfileComponent } from './shared/components/profile/profile.component';
 import { GeneralComponent } from './shared/components/general/general.component';
+import { EmploymentsComponent } from './shared/components/employments/employments.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { GeneralComponent } from './shared/components/general/general.component'
     ProgrammingTableComponent,
     SafeHtmlPipe,
     ProfileComponent,
-    GeneralComponent
+    GeneralComponent,
+    EmploymentsComponent
   ],
   imports: [
     BrowserModule,
