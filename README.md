@@ -1,14 +1,14 @@
 # Resume
-### In progress, experimental with the goal to learn Angular.
-### Now also included Material Design Bootstrap (MDB) for funsies.
+<p>In progress, experimental with the goal to learn Angular.</p>
+<p>Now also included Material Design Bootstrap (MDB) for funsies.</p>
 
 ## Done
-### About page.
-### Skills page.
-###-Material data table with service interface.
+<p>About page.</p>
+<p>Skills page.</p>
+<p> -Material data table with service interface.</p>
 
 ## TODO
-### Skills page.
-###  - Subset of skills
-### Education page.
-### Contact page.
+<p>Skills page.</p>
+<p> - Subset of skills</p>
+<p>Education page.</p>
+<p>Contact page.</p>
