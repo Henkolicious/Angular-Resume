@@ -3,15 +3,14 @@ export interface IProfile {
   FirstName: string;
   LastName: string;
   FullName: string;
-  Greeting: string;
   DateOfBirth: string;
   Occupation: string;
   City: string;
   Employer: string;
-  Image: string;
-  Age: number;
+  Image: string;  
   LinkedInUrl: string;
-  Link: string;
+  FacebookUrl: string;
+  GithubUrl: string;
   EmploymentLogo: string;
   DescriptionList: string[];
   MainLanguage: string;

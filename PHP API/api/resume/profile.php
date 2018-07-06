@@ -5,18 +5,15 @@ header('Access-Control-Allow-Origin: *');
 $arr = array(
     "Id" => "1",
     "FirstName" => "Henrik",
-    "LastName" => "Larsson",    
-    "Greeting" => "hello there",
+    "LastName" => "Larsson",
     "DateOfBirth" => "1987-07-16",
     "Occupation" => "Software Engineer",
     "City" => "Uppsala",
     "Employer" => "Sogeti Sverige AB",
-    "Image" => "assets/images/henlarss.jpg",
-    "Age" => "",
+    "Image" => "assets/images/henlarss.jpg",    
     "LinkedInUrl" => "https://www.linkedin.com/in/henrik-larsson-2279b2105/",
     "FacebookUrl" => "https://www.facebook.com/henrik.larsson.1654",
     "GithubUrl" => "https://github.com/Henkolicious",
-    "Link" => "https://hr.nih.gov/working-nih/competencies/competencies-proficiency-scale",
     "EmploymentLogo" => "assets/images/sogeti_logo.png",
     "DescriptionList" => array (    
         "I'm a meticulous and an analytical developer with a unviversity degree.

@@ -8,11 +8,13 @@ import {
   query,
   stagger
 } from "@angular/animations";
+import { DataAccessService } from "../../services/data-access.service";
+import { KeyValuePair } from "../../../models/classes/KeyValuePair";
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss'],
+  selector: "app-profile",
+  templateUrl: "./profile.component.html",
+  styleUrls: ["./profile.component.scss"],
   animations: [
     trigger("profileAnimation", [
       transition("* => *", [
@@ -48,24 +50,40 @@ import {
   ]
 })
 export class ProfileComponent implements OnInit {
+  linkedInUrl: string;
+  facebookUrl: string;
+  githubUrl: string;
 
-  profileItems: ProfileItem[] = [
-    { description: "Name", text: "Henrik Larsson" },
-    { description: "Date of birth", text: "1987-07-16" },
-    { description: "Occupation", text: "Software Engineer 🙊" },
-    { description: "Employer", text: "Sogeti" },
-    { description: "City", text: "Uppsala" }
-  ];
+  profileData: KeyValuePair[];
 
-
-  constructor() { }
+  constructor(private _dao: DataAccessService) {}
 
   ngOnInit() {
+    this._dao.getProfile().subscribe(res => {
+      this.linkedInUrl = res.LinkedInUrl;
+      this.facebookUrl = res.FacebookUrl;
+      this.githubUrl = res.GithubUrl;
+
+      this.profileData = [
+        { key: "Name", value: `${res.FirstName} ${res.LastName}` },
+        { key: "Age", value: this.caluclateAge(res.DateOfBirth) },
+        { key: "Occupation", value: res.Occupation },
+        { key: "Employer", value: res.Employer },
+        { key: "City", value: res.City }
+      ];
+    });
   }
 
-}
+  caluclateAge(dateString): string {
+    const today = new Date();
+    const birthDate = new Date(dateString);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
 
-export interface ProfileItem {
-  description: string;
-  text: string;
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+    return age.toString();
+  }
 }

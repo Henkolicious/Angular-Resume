@@ -7,17 +7,23 @@
       </div>
       <div class="profile__listwrapper">
         <div>
-          <table class="profile__table" *ngIf="profileItems" @profileAnimation>
-            <tr class="profile__row" *ngFor="let item of profileItems">
-              <td class="profile__cell">{{item.description}}</td>
-              <td class="profile__cell">{{item.text}}</td>
-            </tr>
+          <table class="profile__table" *ngIf="profileData" @profileAnimation>
+            <tr class="profile__row" *ngFor="let data of profileData">
+              <td class="profile__cell">{{ data.key }}</td>
+              <td class="profile__cell">{{ data.value }}</td>
+            </tr>           
           </table>
         </div>
         <div class="profile__links u-center-text u-margin-top-small">
-          <i class="fa fa-linkedin"></i>
-          <i class="fa fa-facebook-square"></i>
-          <i class="fa fa-github"></i>
+          <a href="{{ linkedInUrl }}" target="_blank">
+            <i class="fa fa-linkedin"></i>
+          </a>
+          <a href="{{ facebookUrl }}" target="_blank">
+            <i class="fa fa-facebook-square"></i>
+          </a>
+          <a href="{{ githubUrl }}" target="_blank">
+            <i class="fa fa-github"></i>
+          </a>
         </div>
       </div>
     </div>
