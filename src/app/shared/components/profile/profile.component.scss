@@ -27,8 +27,6 @@
   }
 
   &__row {
-    // box-sizing: border-box;
-
     &:nth-child(odd) {
       background-color: $color-white;
       color: $color-text;
