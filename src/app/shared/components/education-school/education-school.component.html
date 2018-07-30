@@ -1,0 +1,60 @@
+<div class="education">
+  <div class="education__header">{{ sectionHeader}}</div>
+  <div class="education__list">
+    <hr class="education__hr" />
+    <div class="education__item" *ngFor="let item of educations">
+      <!-- row -->
+      <div class="custom-row">
+
+        <!-- low resolution -->
+        <div class="education__lowres">
+              <div class="col-3-of-4">
+                <div class="education__heading">
+                  {{ item.Employer }}
+                </div>
+                <div class="education__description">
+                  {{ item.Description }}
+                </div>
+              </div>
+    
+              <div class="col-1-of-4">
+                <div class="education__logo view hm-green-slight waves-dark" mdbWavesEffect>
+                  <img src="{{ item.Logo }}" alt="logo" />
+                </div>
+                <div class="education__period u-center-text">
+                  <div class="education__period-prefix">{{ item.Prefix }}</div>
+                  {{ item.From }} {{ item.Dividor }} {{ item.To }}
+                </div>
+              </div>
+            </div>
+
+        <!-- high resolution -->
+        <div class="education__highres">
+          <div class="col-1-of-4">
+            <div class="education__logo view hm-green-slight waves-dark" mdbWavesEffect>
+              <img src="{{ item.Logo }}" alt="logo" />
+            </div>
+            <div class="education__period u-center-text">
+              <div class="education__period-prefix">{{ item.Prefix }}</div>
+              {{ item.From }} {{ item.Dividor }} {{ item.To }}
+            </div>
+          </div>
+
+          <div class="col-3-of-4">
+            <div class="education__heading">
+              {{ item.Heading }}
+            </div>
+            <div class="education__description">
+              {{ item.Description }}
+            </div>
+            <ul class="education__sublist" >
+              <li calss="education__sublist-subitem" *ngFor="let subListItem of item.List">{{ subListItem }}</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <!-- /row -->
+    </div>
+  </div>
+</div>

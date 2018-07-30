@@ -38,6 +38,7 @@ import { ProgrammingTableComponent } from "./shared/components/programming-table
 import { ProfileComponent } from './shared/components/profile/profile.component';
 import { GeneralComponent } from './shared/components/general/general.component';
 import { EmploymentsComponent } from './shared/components/employments/employments.component';
+import { EducationSchoolComponent } from './shared/components/education-school/education-school.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { EmploymentsComponent } from './shared/components/employments/employment
     SafeHtmlPipe,
     ProfileComponent,
     GeneralComponent,
-    EmploymentsComponent
+    EmploymentsComponent,
+    EducationSchoolComponent
   ],
   imports: [
     BrowserModule,

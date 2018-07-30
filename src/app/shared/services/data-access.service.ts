@@ -8,6 +8,7 @@ import { environment } from "../../../environments/environment";
 import { IEmployment } from "../../models/interfaces/IEmployment";
 import { IProfile } from "../../models/interfaces/IProfile";
 import { IProgrammingLanguage } from "../../models/interfaces/IProgrammingLanguage";
+import { IEducation } from "../../models/interfaces/IEducation";
 
 @Injectable()
 export class DataAccessService {
@@ -15,7 +16,8 @@ export class DataAccessService {
   private port: string;
   private apiProfileUrl: string;
   private apiEmplymentUrl: string;
-  private programmingLanguageUrl: string;
+  private apiProgrammingLanguageUrl: string;
+  private apiEducationUrl: string;
 
   constructor(private http: HttpClient) {
     if (environment.production) {
@@ -27,7 +29,8 @@ export class DataAccessService {
     this.baseUrl = `${window.location.protocol}//${window.location.hostname}${this.port}`;
     this.apiProfileUrl = this.baseUrl + "/api/resume/profile.php";
     this.apiEmplymentUrl = this.baseUrl + "/api/resume/employments.php";
-    this.programmingLanguageUrl = this.baseUrl + "/api/resume/programming-languages.php";
+    this.apiProgrammingLanguageUrl = this.baseUrl + "/api/resume/programming-languages.php";
+    this.apiEducationUrl = this.baseUrl + "/api/resume/education.php";
   }
 
   public getProfile(): Observable<IProfile> {
@@ -52,7 +55,7 @@ export class DataAccessService {
 
   public getProgrammingLanguages(): Observable<IProgrammingLanguage[]> {
     return this.http
-      .get<IProgrammingLanguage[]>(this.programmingLanguageUrl)
+      .get<IProgrammingLanguage[]>(this.apiProgrammingLanguageUrl)
       .pipe(
         retry(3),
         catchError(() =>
@@ -61,5 +64,18 @@ export class DataAccessService {
           )
         )
       );
+  }
+
+  public getEducations(): Observable<IEducation[]> {
+    return this.http
+    .get<IEducation[]>(this.apiEducationUrl)
+    .pipe(
+      retry(3),
+      catchError(() =>
+        Observable.throw(
+          "ERROR: Could not get educations from the server."
+        )
+      )
+    );
   }
 }

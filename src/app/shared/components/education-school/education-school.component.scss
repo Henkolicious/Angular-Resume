@@ -1,7 +1,7 @@
 @import "~sass/abstracts/variables";
 @import "~sass/abstracts/mixins";
 
-.employment {
+.education {
   &__lowres {
     display: none;
 
@@ -18,8 +18,17 @@
     }
   }
 
+  &__hr {
+    @include hr;
+  }
+
   &__header {
     font-size: $default-header-size;
+  }
+
+  &__heading {
+    font-size: $tertiary-header-size;
+    font-weight: bold;
   }
 
   &__item:not(:last-child) {
@@ -30,33 +39,16 @@
     }
   }
 
-  // LHS
-  &__period {
-    font-size: $default-font-size;
-    @include respond(tab-port) {
-      margin-bottom: 5rem;
-    }
-
-    &-prefix {
-      font-size: $default-font-size;
-    }
-  }
-
-  // RHS
-  &__heading {
-    font-weight: bold;
-  }
-
-  &__hr {
-    @include hr;
-  }
-
   &__logo > img {
     width: 100%;
     height: auto;
   }
 
-  &__description {
-    font-size: $default-font-size;
+  &__sublist {
+    list-style-type: circle;
+    & > li {
+      margin: 0 0 0 3rem;
+      font-size: $secondary-font-size;
+    }
   }
 }
