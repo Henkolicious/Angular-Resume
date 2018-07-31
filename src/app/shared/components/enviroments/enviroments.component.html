@@ -1,0 +1,65 @@
+<div class="enviroment">
+  <div class="enviroment__header">{{ sectionHeader}}</div>
+  <div class="enviroment__list">
+    <hr class="enviroment__hr" />
+    <div class="enviroment__item" *ngFor="let item of enviroments">
+      <!-- row -->
+      <div class="custom-row">
+
+        <!-- low resolution -->
+        <div class="enviroment__lowres">
+          <div class="col-3-of-4">
+            <div class="enviroment__heading">
+              {{ item.Heading }}
+            </div>
+            <div class="enviroment__description">
+              {{ item.Description }}
+            </div>
+            <ul class="enviroment__sublist">
+              <li calss="enviroment__sublist-subitem" *ngFor="let subListItem of item.List">{{ subListItem }}</li>
+            </ul>
+          </div>
+
+          <div class="col-1-of-4">
+            <div class="enviroment__logo view hm-green-slight waves-dark" mdbWavesEffect>
+              <img src="{{ item.Logo }}" alt="logo" />
+            </div>
+            <div class="enviroment__period u-center-text">
+              <div class="enviroment__period-prefix">{{ item.Prefix }}</div>
+              {{ item.From }} {{ item.Dividor }} {{ item.To }}
+              <span class="enviroment__credits">&nbsp;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- high resolution -->
+        <div class="enviroment__highres">
+          <div class="col-1-of-4">
+            <div class="enviroment__logo view hm-green-slight waves-dark" mdbWavesEffect>
+              <img src="{{ item.Logo }}" alt="logo" />
+            </div>
+            <div class="enviroment__period u-center-text">
+              <div class="enviroment__period-prefix">{{ item.Prefix }}</div>
+              {{ item.From }} {{ item.Dividor }} {{ item.To }}
+              <span class="enviroment__credits">&nbsp;</span>
+            </div>
+          </div>
+
+          <div class="col-3-of-4">
+            <div class="enviroment__heading">
+              {{ item.Heading }}
+            </div>
+            <div class="enviroment__description">
+              {{ item.Description }}
+            </div>
+            <ul class="enviroment__sublist">
+              <li calss="enviroment__sublist-subitem" *ngFor="let subListItem of item.List">{{ subListItem }}</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <!-- /row -->
+    </div>
+  </div>
+</div>

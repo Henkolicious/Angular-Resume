@@ -15,8 +15,7 @@ export class CoursesUniversityComponent implements OnInit {
   constructor(private _dao: DataAccessService) { }
 
   ngOnInit() {
-    this._dao.getCoursesUniversity().subscribe(res => {
-      console.log(res);
+    this._dao.getCoursesUniversity().subscribe(res => {      
       this.universityCourses = res;
     });
   }

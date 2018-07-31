@@ -10,7 +10,7 @@
         <div class="education__lowres">
           <div class="col-3-of-4">
             <div class="education__heading">
-              {{ item.Employer }}
+              {{ item.Heading }}
             </div>
             <div class="education__description">
               {{ item.Description }}
@@ -27,6 +27,7 @@
             <div class="education__period u-center-text">
               <div class="education__period-prefix">{{ item.Prefix }}</div>
               {{ item.From }} {{ item.Dividor }} {{ item.To }}
+              <span class="education__credits">Credits: {{ item.Credits }}</span>
             </div>
           </div>
         </div>
@@ -40,6 +41,7 @@
             <div class="education__period u-center-text">
               <div class="education__period-prefix">{{ item.Prefix }}</div>
               {{ item.From }} {{ item.Dividor }} {{ item.To }}
+              <span class="education__credits">Credits: {{ item.Credits }}</span>
             </div>
           </div>
 

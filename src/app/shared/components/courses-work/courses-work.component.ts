@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICourses } from '../../../models/interfaces/ICourses';
+import { DataAccessService } from '../../services/data-access.service';
 
 @Component({
   selector: 'app-courses-work',
@@ -11,9 +12,12 @@ export class CoursesWorkComponent implements OnInit {
   workCourses: ICourses[] = [];
   sectionHeader: string = "Courses through work";
 
-  constructor() { }
+  constructor(private _dao: DataAccessService) { }
 
   ngOnInit() {
+    this._dao.getCoursesWork().subscribe(res => {      
+      this.workCourses = res;
+    });
   }
 
 }

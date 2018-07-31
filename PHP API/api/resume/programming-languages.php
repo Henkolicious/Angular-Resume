@@ -85,7 +85,7 @@ $arr = array(
         "Id" => 14,
         "Language" => ".NET Web forms",
         "Knowledge" => 50,
-        "Description" => "I do know a some stuffs here aswell. But I don't really like this kind of post-back shenanigans.",
+        "Description" => "I do know a sufficiant amout here aswell. But I don't really like this kind of post-back shenanigans.",
     ),
     array(
         "Id" => 15,
@@ -115,7 +115,7 @@ $arr = array(
         "Id" => 19,
         "Language" => "SASS / SCSS",
         "Knowledge" => 40,
-        "Description" => "SASS or SCSS is quite important to understand for graceful degradations and for cross browser support.",
+        "Description" => "Simpler to write styling then regular CSS with some finess.",
     ),
     array(
         "Id" => 1337,

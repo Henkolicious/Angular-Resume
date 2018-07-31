@@ -1,0 +1,6 @@
+@import "~sass/abstracts/variables";
+@import "~sass/abstracts/mixins";
+
+.work-course {
+  @include custom-list-items;
+}

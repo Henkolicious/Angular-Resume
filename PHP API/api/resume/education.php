@@ -21,6 +21,7 @@ $arr = array(
             "Security",
             "Other",
         ),
+        "Credits" => "180HP",
         "Link" => "https://www.miun.se/utbildning/program/data-och-it/datateknik/utbildningsplan/?utbildningsplanid=1069",
     ),
     array(
@@ -34,6 +35,7 @@ $arr = array(
         "Logo" => "assets/images/sg_logo.png",        
         "List" => array(
         ),
+        "Credits" => "2500 Points",
         "Link" => "https://gymnasium.sundsvall.se/program/naturvetenskapsprogrammet/",
     ),
 );

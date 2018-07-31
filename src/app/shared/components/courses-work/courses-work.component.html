@@ -1,59 +1,59 @@
-<div class="workCourse">
-  <div class="workCourse__header">{{ sectionHeader}}</div>
-  <div class="workCourse__list">
-    <hr class="workCourse__hr" />
-    <div class="workCourse__item" *ngFor="let item of workCourses">
+<div class="work-course">
+  <div class="work-course__header">{{ sectionHeader}}</div>
+  <div class="work-course__list">
+    <hr class="work-course__hr" />
+    <div class="work-course__item" *ngFor="let item of workCourses">
       <!-- row -->
       <div class="custom-row">
 
         <!-- low resolution -->
-        <div class="workCourse__lowres">
+        <div class="work-course__lowres">
           <div class="col-3-of-4">
-            <div class="workCourse__heading">
-              {{ item.Employer }}
+            <div class="work-course__heading">
+              {{ item.Heading }}
             </div>
-            <div class="workCourse__description">
+            <div class="work-course__description">
               {{ item.Description }}
             </div>
-            <ul class="workCourse__sublist">
-              <li calss="workCourse__sublist-subitem" *ngFor="let subListItem of item.List">{{ subListItem }}</li>
+            <ul class="work-course__sublist">
+              <li calss="work-course__sublist-subitem" *ngFor="let subListItem of item.List">{{ subListItem }}</li>
             </ul>
           </div>
 
           <div class="col-1-of-4">
-            <div class="workCourse__logo view hm-green-slight waves-dark" mdbWavesEffect>
+            <div class="work-course__logo view hm-green-slight waves-dark" mdbWavesEffect>
               <img src="{{ item.Logo }}" alt="logo" />
             </div>
-            <div class="workCourse__period u-center-text">
-              <div class="workCourse__period-prefix">{{ item.Prefix }}</div>
+            <div class="work-course__period u-center-text">
+              <div class="work-course__period-prefix">{{ item.Prefix }}</div>
               {{ item.From }} {{ item.Dividor }} {{ item.To }}
-              <span class="workCourse__credits">{{ item.Credits }}</span>
+              <span class="work-course__credits">{{ item.Credits }}</span>
             </div>
           </div>
         </div>
 
         <!-- high resolution -->
-        <div class="workCourse__highres">
+        <div class="work-course__highres">
           <div class="col-1-of-4">
-            <div class="workCourse__logo view hm-green-slight waves-dark" mdbWavesEffect>
+            <div class="work-course__logo view hm-green-slight waves-dark" mdbWavesEffect>
               <img src="{{ item.Logo }}" alt="logo" />
             </div>
-            <div class="workCourse__period u-center-text">
-              <div class="workCourse__period-prefix">{{ item.Prefix }}</div>
+            <div class="work-course__period u-center-text">
+              <div class="work-course__period-prefix">{{ item.Prefix }}</div>
               {{ item.From }} {{ item.Dividor }} {{ item.To }}
-              <span class="workCourse__credits">{{ item.Credits }}</span>
+              <span class="work-course__credits">{{ item.Credits }}</span>
             </div>
           </div>
 
           <div class="col-3-of-4">
-            <div class="workCourse__heading">
+            <div class="work-course__heading">
               {{ item.Heading }}
             </div>
-            <div class="workCourse__description">
+            <div class="work-course__description">
               {{ item.Description }}
             </div>
-            <ul class="workCourse__sublist">
-              <li calss="workCourse__sublist-subitem" *ngFor="let subListItem of item.List">{{ subListItem }}</li>
+            <ul class="work-course__sublist">
+              <li calss="work-course__sublist-subitem" *ngFor="let subListItem of item.List">{{ subListItem }}</li>
             </ul>
           </div>
         </div>

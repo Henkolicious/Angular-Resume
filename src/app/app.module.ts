@@ -41,6 +41,8 @@ import { EmploymentsComponent } from './shared/components/employments/employment
 import { EducationSchoolComponent } from './shared/components/education-school/education-school.component';
 import { CoursesUniversityComponent } from './shared/components/courses-university/courses-university.component';
 import { CoursesWorkComponent } from './shared/components/courses-work/courses-work.component';
+import { EnviromentsComponent } from './shared/components/enviroments/enviroments.component';
+import { EnviromentComponent } from './pages/enviroment/enviroment.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { CoursesWorkComponent } from './shared/components/courses-work/courses-w
     EmploymentsComponent,
     EducationSchoolComponent,
     CoursesUniversityComponent,
-    CoursesWorkComponent
+    CoursesWorkComponent,
+    EnviromentsComponent,
+    EnviromentComponent
   ],
   imports: [
     BrowserModule,
