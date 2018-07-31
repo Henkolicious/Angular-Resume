@@ -1,0 +1,65 @@
+<div class="university">
+  <div class="university__header">{{ sectionHeader}}</div>
+  <div class="university__list">
+    <hr class="university__hr" />
+    <div class="university__item" *ngFor="let item of universityCourses">
+      <!-- row -->
+      <div class="custom-row">
+
+        <!-- low resolution -->
+        <div class="university__lowres">
+          <div class="col-3-of-4">
+            <div class="university__heading">
+              {{ item.Employer }}
+            </div>
+            <div class="university__description">
+              {{ item.Description }}
+            </div>
+            <ul class="university__sublist">
+              <li calss="university__sublist-subitem" *ngFor="let subListItem of item.List">{{ subListItem }}</li>
+            </ul>
+          </div>
+
+          <div class="col-1-of-4">
+            <div class="university__logo view hm-green-slight waves-dark" mdbWavesEffect>
+              <img src="{{ item.Logo }}" alt="logo" />
+            </div>
+            <div class="university__period u-center-text">
+              <div class="university__period-prefix">{{ item.Prefix }}</div>
+              {{ item.From }} {{ item.Dividor }} {{ item.To }}
+              <span class="university__credits">{{ item.Credits }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- high resolution -->
+        <div class="university__highres">
+          <div class="col-1-of-4">
+            <div class="university__logo view hm-green-slight waves-dark" mdbWavesEffect>
+              <img src="{{ item.Logo }}" alt="logo" />
+            </div>
+            <div class="university__period u-center-text">
+              <div class="university__period-prefix">{{ item.Prefix }}</div>
+              {{ item.From }} {{ item.Dividor }} {{ item.To }}
+              <span class="university__credits">{{ item.Credits }}</span>
+            </div>
+          </div>
+
+          <div class="col-3-of-4">
+            <div class="university__heading">
+              {{ item.Heading }}
+            </div>
+            <div class="university__description">
+              {{ item.Description }}
+            </div>
+            <ul class="university__sublist">
+              <li calss="university__sublist-subitem" *ngFor="let subListItem of item.List">{{ subListItem }}</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <!-- /row -->
+    </div>
+  </div>
+</div>

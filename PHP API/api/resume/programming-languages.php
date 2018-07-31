@@ -54,8 +54,8 @@ $arr = array(
     array(
         "Id" => 9,
         "Language" => "TypeScript",
-        "Knowledge" => 40,
-        "Description" => "I Do know a little here aswell.",
+        "Knowledge" => 30,
+        "Description" => "I do know a little here aswell.",
     ),
     array(
         "Id" => 10,

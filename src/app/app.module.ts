@@ -39,6 +39,8 @@ import { ProfileComponent } from './shared/components/profile/profile.component'
 import { GeneralComponent } from './shared/components/general/general.component';
 import { EmploymentsComponent } from './shared/components/employments/employments.component';
 import { EducationSchoolComponent } from './shared/components/education-school/education-school.component';
+import { CoursesUniversityComponent } from './shared/components/courses-university/courses-university.component';
+import { CoursesWorkComponent } from './shared/components/courses-work/courses-work.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { EducationSchoolComponent } from './shared/components/education-school/e
     ProfileComponent,
     GeneralComponent,
     EmploymentsComponent,
-    EducationSchoolComponent
+    EducationSchoolComponent,
+    CoursesUniversityComponent,
+    CoursesWorkComponent
   ],
   imports: [
     BrowserModule,

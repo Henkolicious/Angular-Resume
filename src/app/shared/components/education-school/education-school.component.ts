@@ -16,8 +16,6 @@ export class EducationSchoolComponent implements OnInit {
 
   ngOnInit() {
     this._dao.getEducations().subscribe(res => {
-      console.log(res);
-      
       this.educations = res;
     });
   }

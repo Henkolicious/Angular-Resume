@@ -9,6 +9,7 @@ import { IEmployment } from "../../models/interfaces/IEmployment";
 import { IProfile } from "../../models/interfaces/IProfile";
 import { IProgrammingLanguage } from "../../models/interfaces/IProgrammingLanguage";
 import { IEducation } from "../../models/interfaces/IEducation";
+import { ICourses } from "../../models/interfaces/ICourses";
 
 @Injectable()
 export class DataAccessService {
@@ -18,6 +19,7 @@ export class DataAccessService {
   private apiEmplymentUrl: string;
   private apiProgrammingLanguageUrl: string;
   private apiEducationUrl: string;
+  private apiCoursesUniversity: string;
 
   constructor(private http: HttpClient) {
     if (environment.production) {
@@ -31,6 +33,7 @@ export class DataAccessService {
     this.apiEmplymentUrl = this.baseUrl + "/api/resume/employments.php";
     this.apiProgrammingLanguageUrl = this.baseUrl + "/api/resume/programming-languages.php";
     this.apiEducationUrl = this.baseUrl + "/api/resume/education.php";
+    this.apiCoursesUniversity = this.baseUrl + "/api/resume/courses_university.php";
   }
 
   public getProfile(): Observable<IProfile> {
@@ -69,6 +72,19 @@ export class DataAccessService {
   public getEducations(): Observable<IEducation[]> {
     return this.http
     .get<IEducation[]>(this.apiEducationUrl)
+    .pipe(
+      retry(3),
+      catchError(() =>
+        Observable.throw(
+          "ERROR: Could not get educations from the server."
+        )
+      )
+    );
+  }
+
+  public getCoursesUniversity(): Observable<ICourses[]> {
+    return this.http
+    .get<ICourses[]>(this.apiCoursesUniversity)
     .pipe(
       retry(3),
       catchError(() =>

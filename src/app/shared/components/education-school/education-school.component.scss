@@ -18,6 +18,14 @@
     }
   }
 
+  &__period {
+    font-size: $secondary-font-size;
+    &-prefix {
+      margin: 1rem 0 0 0;
+      font-size: $secondary-font-size;
+    }
+  }
+
   &__hr {
     @include hr;
   }
@@ -29,6 +37,10 @@
   &__heading {
     font-size: $tertiary-header-size;
     font-weight: bold;
+  }
+
+  &__description {
+    font-size: $default-font-size;
   }
 
   &__item:not(:last-child) {
