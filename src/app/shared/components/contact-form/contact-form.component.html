@@ -1,0 +1,24 @@
+<div [hidden]="submitted">
+  <form (ngSubmit)="onSubmit()" #contactForm="ngForm" id="contact-form">
+    <div class="form-group">
+      <label for="textarea">{{ sectionHeader }}</label>
+      <textarea type="text" class="form-control" id="textarea" name="contactForm" [(ngModel)]="model.textArea" required></textarea>
+    </div>
+    <div [hidden]="contactForm.valid || contactForm.pristine" class="alert alert-danger">
+      This field is required
+    </div>
+    <div id="recaptcha-container">
+       <!-- dynamicly loaded content from ts  -->
+       <div class="g-recaptcha" data-sitekey="6LfwqWcUAAAAAPPQ3oDGVo2ZAROc1ixLBM9AivaI" data-callback="verifyCallback" async defer></div>
+     </div>
+    <button type="submit" class="btn btn--primary" [hidden]="!contactForm.form.valid">Submit</button>
+    <button type="submit" class="btn btn--secondary" [disabled]="!contactForm.form.valid" [hidden]="contactForm.form.valid">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted" class="submitted">
+  <div class="submitted__header">You submitted the following:</div>
+  <pre>
+  <div class="submitted__content">{{ model.textArea }}</div>
+</pre>
+</div>

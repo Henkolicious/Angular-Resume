@@ -1,0 +1,45 @@
+@import "~sass/abstracts/variables";
+@import "~sass/abstracts/mixins";
+
+#textarea {
+  min-height: 60rem;
+  font-size: $default-font-size;
+
+  @include respond(tab-port) {
+    min-height: 65vh;
+  }
+}
+
+pre {
+  display: block;
+  font-family: monospace;
+  white-space: pre;
+  
+  border: .1rem solid lightgray;
+  background-color: $color-gray-light;
+  padding: 0 1rem;
+}
+
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid #42a948; /* green */
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.submitted {
+  &__header {
+    font-weight: bold;
+    font-size: $tertiary-header-size;
+  }
+  &__content {
+    font-size: $default-font-size;
+    white-space: pre-wrap
+  }
+}
+
+.btn.btn--primary, .btn.btn--secondary {
+  margin-top: 2rem;
+}

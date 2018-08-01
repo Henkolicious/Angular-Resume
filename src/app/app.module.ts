@@ -2,6 +2,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, NO_ERRORS_SCHEMA  } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 /* animations */
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -25,7 +26,6 @@ import {
   MatProgressSpinnerModule,
   MatFormFieldModule
 } from "@angular/material";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 /* components */
@@ -43,6 +43,8 @@ import { CoursesUniversityComponent } from './shared/components/courses-universi
 import { CoursesWorkComponent } from './shared/components/courses-work/courses-work.component';
 import { EnviromentsComponent } from './shared/components/enviroments/enviroments.component';
 import { EnviromentComponent } from './pages/enviroment/enviroment.component';
+import { ContactFormComponent } from './shared/components/contact-form/contact-form.component';
+import { HeroFormComponent } from './shared/components/hero-form/hero-form.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { EnviromentComponent } from './pages/enviroment/enviroment.component';
     CoursesUniversityComponent,
     CoursesWorkComponent,
     EnviromentsComponent,
-    EnviromentComponent
+    EnviromentComponent,
+    ContactFormComponent,
+    HeroFormComponent
   ],
   imports: [
     BrowserModule,
