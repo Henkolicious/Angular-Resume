@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs/observable";
-import { catchError, retry } from "rxjs/operators";
+import { catchError, map, retry } from "rxjs/operators";
 import { environment } from "../../../environments/environment";
 
 /* Models */
@@ -11,6 +11,7 @@ import { IProgrammingLanguage } from "../../models/interfaces/IProgrammingLangua
 import { IEducation } from "../../models/interfaces/IEducation";
 import { ICourses } from "../../models/interfaces/ICourses";
 import { IEnviroment } from "../../models/interfaces/IEnviroment";
+import { IUserAgent } from "../../models/interfaces/IUserAgent";
 
 @Injectable()
 export class DataAccessService {
@@ -23,22 +24,26 @@ export class DataAccessService {
   private apiCoursesUniversityUrl: string;
   private apiCoursesWorkUrl: string;
   private apiEnviromentUrl: string;
+  private ipInfoUrl: string = "http://ipinfo.io";
+  private googleRecaptchaVerificationUrl: string = "https://www.google.com/recaptcha/api/siteverify";
 
   constructor(private http: HttpClient) {
     if (environment.production) {
       this.port = window.location.port;
     } else {
-      this.port = ":4203";
+      this.port = ":443";
     }
 
     this.baseUrl = `${window.location.protocol}//${window.location.hostname}${this.port}`;
     this.apiProfileUrl = this.baseUrl + "/api/resume/profile.php";
     this.apiEmplymentUrl = this.baseUrl + "/api/resume/employments.php";
-    this.apiProgrammingLanguageUrl = this.baseUrl + "/api/resume/programming-languages.php";
+    this.apiProgrammingLanguageUrl =
+      this.baseUrl + "/api/resume/programming-languages.php";
     this.apiEducationUrl = this.baseUrl + "/api/resume/education.php";
-    this.apiCoursesUniversityUrl = this.baseUrl + "/api/resume/courses_university.php";
+    this.apiCoursesUniversityUrl =
+      this.baseUrl + "/api/resume/courses_university.php";
     this.apiCoursesWorkUrl = this.baseUrl + "/api/resume/courses_work.php";
-    this.apiEnviromentUrl = this.baseUrl + "/api/resume/enviroments.php";
+    this.apiEnviromentUrl = this.baseUrl + "/api/resume/enviroments.php";    
   }
 
   public getProfile(): Observable<IProfile> {
@@ -75,22 +80,16 @@ export class DataAccessService {
   }
 
   public getEducations(): Observable<IEducation[]> {
-    return this.http
-    .get<IEducation[]>(this.apiEducationUrl)
-    .pipe(
+    return this.http.get<IEducation[]>(this.apiEducationUrl).pipe(
       retry(3),
       catchError(() =>
-        Observable.throw(
-          "ERROR: Could not get educations from the server."
-        )
+        Observable.throw("ERROR: Could not get educations from the server.")
       )
     );
   }
 
   public getCoursesUniversity(): Observable<ICourses[]> {
-    return this.http
-    .get<ICourses[]>(this.apiCoursesUniversityUrl)
-    .pipe(
+    return this.http.get<ICourses[]>(this.apiCoursesUniversityUrl).pipe(
       retry(3),
       catchError(() =>
         Observable.throw(
@@ -101,28 +100,51 @@ export class DataAccessService {
   }
 
   public getCoursesWork(): Observable<ICourses[]> {
-    return this.http
-    .get<ICourses[]>(this.apiCoursesWorkUrl)
-    .pipe(
+    return this.http.get<ICourses[]>(this.apiCoursesWorkUrl).pipe(
       retry(3),
       catchError(() =>
-        Observable.throw(
-          "ERROR: Could not get work courses from the server."
-        )
+        Observable.throw("ERROR: Could not get work courses from the server.")
       )
     );
   }
 
   public getEnviroments(): Observable<IEnviroment[]> {
-    return this.http
-    .get<IEnviroment[]>(this.apiEnviromentUrl)
-    .pipe(
+    return this.http.get<IEnviroment[]>(this.apiEnviromentUrl).pipe(
       retry(3),
       catchError(() =>
-        Observable.throw(
-          "ERROR: Could not get enviroments from the server."
-        )
+        Observable.throw("ERROR: Could not get enviroments from the server.")
       )
     );
+  }
+
+  public validateRecaptcha(response: string, clientIP?: string): Observable<any> {
+    let data = {
+      secret: "6LfwqWcUAAAAAJ9r_mpqg0KJQf0tZW7t09hEzM43",
+      response: response,
+      remoteip: clientIP
+    }
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': '6LfwqWcUAAAAAJ9r_mpqg0KJQf0tZW7t09hEzM43',
+        'Access-Control-Allow-Origin': '*'
+      })
+    };
+    
+    console.log("Sending this data.");    
+    console.log(this.googleRecaptchaVerificationUrl);
+    console.log(data);
+    console.log(httpOptions);
+    
+    let googleResponse = this.http.post(this.googleRecaptchaVerificationUrl, data, httpOptions);
+    console.log("Response from google.");
+    console.log(googleResponse);
+
+    return googleResponse;
+  }
+
+  public getClientInformation(): Observable<IUserAgent> {
+    return this.http.get<IUserAgent>(this.ipInfoUrl);
   }
 }
