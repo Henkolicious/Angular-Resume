@@ -1,0 +1,26 @@
+Replace "Subject" with CN (Common Name) and/or SAN (Subject Alternative Name)
+1. New-SelfSignedCertificate -DnsName localhost -CertStoreLocation Cert:\LocalMachine\My
+
+Replace "Password" with your password.
+2. $CertPassword = ConvertTo-SecureString -String Test123 -Force –AsPlainText
+
+Replace "Thumbprint" with certificate Thumbprint and "path-to-pfx" the location where the certificate PFX will be saved.
+3. Export-PfxCertificate -Cert cert:\LocalMachine\My\88BF125685863824B68FB7EA169EB5ABC88C20EF -FilePath C:\"My Projects"\SSL\testing.pfx -Password $CertPassword
+
+
+Some prone errors on IIS 10 are missmatching host- and dns names.
+
+
+
+"HTTP Error 403.16 - Forbidden
+Your client certificate is either not trusted or is invalid."
+
+"Most likely causes:
+* The client certificate used for this request is not trusted by the Web server."
+
+
+To check hostname
+cmd --> hostname
+
+
+Too be continued!

@@ -31,7 +31,7 @@ export class DataAccessService {
     if (environment.production) {
       this.port = window.location.port;
     } else {
-      this.port = ":443";
+      this.port = ":446";
     }
 
     this.baseUrl = `${window.location.protocol}//${window.location.hostname}${this.port}`;
