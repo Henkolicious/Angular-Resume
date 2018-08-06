@@ -3,7 +3,7 @@
 <p>Now also included Material Design Bootstrap (MDB) for funsies.</p>
 
 ## Done
-Most parts are done. Currently hosted at henriklarsson.eu
+Most parts are done. Currently hosted at <a href="henriklarsson.eu" target="_blank">henriklarsson.eu</a>
 
 ## TODO
 Mediaquerys in IE on lower resolutions.
