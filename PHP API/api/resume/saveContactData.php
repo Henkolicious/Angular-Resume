@@ -10,6 +10,13 @@
 
         $my_file = 'file.txt';
         $handle = fopen($my_file, 'a') or die('Cannot open file:  '.$my_file);        
-        fwrite($handle, $textarea . "\n");       
+        fwrite($handle, $textarea . "\n");
+
+        emailData("me@henriklarsson.eu", "## Contact ##", $textarea);
+    }
+
+    function emailData($email, $subject, $message){
+        $message = wordwrap($message, 70);
+        mail($email, $subject, $message);
     }
 ?>
