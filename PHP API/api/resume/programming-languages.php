@@ -60,7 +60,7 @@ $arr = array(
     array(
         "Id" => 10,
         "Language" => "PHP",
-        "Knowledge" => 40,
+        "Knowledge" => 30,
         "Description" => "Used when I have an apache server, e.g one.com hosting. Don't know alot though, but propably enough to make some magic happen.",
     ),
     array(

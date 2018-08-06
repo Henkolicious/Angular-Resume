@@ -9,8 +9,8 @@ import { IEnviroment } from '../../../models/interfaces/IEnviroment';
 })
 export class EnviromentsComponent implements OnInit {
 
-  private sectionHeader: string = "Enviroments";
-  private enviroments: IEnviroment[] = [];
+  public sectionHeader: string = "Enviroments";
+  public enviroments: IEnviroment[] = [];
   
   constructor(private _dao: DataAccessService) { }
 

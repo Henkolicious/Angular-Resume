@@ -8,11 +8,11 @@
       This field is required
     </div>
     <div id="recaptcha-container">
-       <!-- dynamicly loaded content from ts  -->
-       <div class="g-recaptcha" data-sitekey="6LfwqWcUAAAAAPPQ3oDGVo2ZAROc1ixLBM9AivaI" data-callback="verifyCallback" async defer></div>
-     </div>
-    <button type="submit" class="btn btn--primary" [hidden]="!contactForm.form.valid">Submit</button>
-    <button type="submit" class="btn btn--secondary" [disabled]="!contactForm.form.valid" [hidden]="contactForm.form.valid">Submit</button>
+      <!-- dynamicly loaded content from ts  -->
+      <div class="g-recaptcha" data-sitekey="6LfwqWcUAAAAAPPQ3oDGVo2ZAROc1ixLBM9AivaI" data-callback="verifyCallback" async defer></div>
+    </div>
+    <button type="submit" class="btn btn--primary" *ngIf="contactForm.form.valid && isVerifiedFromGoogle">Submit</button>
+    <button type="submit" class="btn btn--secondary" [disabled]="!contactForm.form.valid || !isVerifiedFromGoogle" *ngIf="!contactForm.form.valid || !isVerifiedFromGoogle">Submit</button>
   </form>
 </div>
 

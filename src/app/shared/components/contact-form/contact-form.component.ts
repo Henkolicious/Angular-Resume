@@ -1,52 +1,60 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  ChangeDetectorRef,
+  ChangeDetectionStrategy
+} from "@angular/core";
 import { ContactFormData } from "../../../models/classes/contact-form-data";
 import { DataAccessService } from "../../services/data-access.service";
-import { IUserAgent } from "../../../models/interfaces/IUserAgent";
 
 @Component({
   selector: "app-contact-form",
   templateUrl: "./contact-form.component.html",
-  styleUrls: ["./contact-form.component.scss"]
+  styleUrls: ["./contact-form.component.scss"],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class ContactFormComponent implements OnInit {
-  private sectionHeader: string = "Post your message here.";
-  private model: ContactFormData;
-  private submitted: boolean = false;
-  private clientPublicInformation: IUserAgent;
-  private recaptchaScriptUrl: string = "https://www.google.com/recaptcha/api.js";
-  private verificationResponse: string;
+  public sectionHeader: string = "Post your message here.";  
+  public submitted: boolean = false;  
+  public model: ContactFormData;  
+  public recaptchaScriptUrl: string =
+    "https://www.google.com/recaptcha/api.js";
+  public isVerifiedFromGoogle: boolean;  
 
-  constructor(private _dao: DataAccessService) {}
+  constructor(private _dao: DataAccessService, private ref: ChangeDetectorRef) {
+    setInterval(() => {
+      this.ref.markForCheck();
+    }, 1000);
+  }
 
   ngOnInit() {
-    this.model = new ContactFormData("");
-    window['verifyCallback'] = this.verifyCallback.bind(this);  // register the callback function
+    this.model = new ContactFormData(null);
+    window["verifyCallback"] = this.verifyCallback.bind(this); // register the callback function
     this.initRecaptia();
-    // this._dao.getClientInformation().subscribe(res => this.clientPublicInformation = res);      
+    this.isVerifiedFromGoogle = false;
   }
 
   onSubmit() {
-    this.submitted = true;
-    this._dao.validateRecaptcha(this.verificationResponse).subscribe(res => console.log(res));    
-  } 
-
-  initRecaptia() {
-    this.setupRecaptchaScript();
+    this.submitted = true;    
+    this._dao.postContactData(this.model.textArea);
   }
 
-  setupRecaptchaScript() {
-    let form = document.getElementById('contact-form') as HTMLDivElement;
-    let script = document.createElement('script');
-    script.innerHTML = '';
+  initRecaptia() {
+    let form = document.getElementById("contact-form") as HTMLDivElement;
+    let script = document.createElement("script");
+    script.innerHTML = "";
     script.src = this.recaptchaScriptUrl;
     script.async = true;
     script.defer = true;
-    form.appendChild(script);  
+    form.appendChild(script);
   }
 
-  verifyCallback(response){
-    this.verificationResponse = response;
-    console.log(response);    
+  verifyCallback(response) {
+    this._dao.validateRecaptcha(response).subscribe(res => {
+      if (res.success) {
+        this.isVerifiedFromGoogle = true;
+      }
+    });
   }
- 
 }

@@ -11,7 +11,7 @@ import { IProgrammingLanguage } from "../../models/interfaces/IProgrammingLangua
 import { IEducation } from "../../models/interfaces/IEducation";
 import { ICourses } from "../../models/interfaces/ICourses";
 import { IEnviroment } from "../../models/interfaces/IEnviroment";
-import { IUserAgent } from "../../models/interfaces/IUserAgent";
+import { IGoogleVerificationResponse } from "../../models/interfaces/IGoogleVerificationResponse";
 
 @Injectable()
 export class DataAccessService {
@@ -24,17 +24,22 @@ export class DataAccessService {
   private apiCoursesUniversityUrl: string;
   private apiCoursesWorkUrl: string;
   private apiEnviromentUrl: string;
-  private ipInfoUrl: string = "http://ipinfo.io";
-  private googleRecaptchaVerificationUrl: string = "https://www.google.com/recaptcha/api/siteverify";
+  private validateRecaptchaUrl: string;
+  private postContactDataUrl: string;
+  
+  private googleRecaptchaVerificationUrl: string =
+    "https://www.google.com/recaptcha/api/siteverify";
 
   constructor(private http: HttpClient) {
     if (environment.production) {
       this.port = window.location.port;
     } else {
-      this.port = ":446";
+      this.port = ":4203";
     }
 
-    this.baseUrl = `${window.location.protocol}//${window.location.hostname}${this.port}`;
+    this.baseUrl = `${window.location.protocol}//${window.location.hostname}${
+      this.port
+    }`;
     this.apiProfileUrl = this.baseUrl + "/api/resume/profile.php";
     this.apiEmplymentUrl = this.baseUrl + "/api/resume/employments.php";
     this.apiProgrammingLanguageUrl =
@@ -43,7 +48,9 @@ export class DataAccessService {
     this.apiCoursesUniversityUrl =
       this.baseUrl + "/api/resume/courses_university.php";
     this.apiCoursesWorkUrl = this.baseUrl + "/api/resume/courses_work.php";
-    this.apiEnviromentUrl = this.baseUrl + "/api/resume/enviroments.php";    
+    this.apiEnviromentUrl = this.baseUrl + "/api/resume/enviroments.php";
+    this.validateRecaptchaUrl = this.baseUrl + "/api/resume/validateRecaptchaToken.php";
+    this.postContactDataUrl = this.baseUrl + "/api/resume/saveContactData.php";    
   }
 
   public getProfile(): Observable<IProfile> {
@@ -117,34 +124,37 @@ export class DataAccessService {
     );
   }
 
-  public validateRecaptcha(response: string, clientIP?: string): Observable<any> {
+  public validateRecaptcha(
+    response: string,
+    clientIP?: string
+  ): Observable<IGoogleVerificationResponse> {
     let data = {
       secret: "6LfwqWcUAAAAAJ9r_mpqg0KJQf0tZW7t09hEzM43",
       response: response,
-      remoteip: clientIP
-    }
+      remoteip: clientIP == undefined ? null : clientIP,
+      verificationUrl: this.googleRecaptchaVerificationUrl
+    };
 
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': '6LfwqWcUAAAAAJ9r_mpqg0KJQf0tZW7t09hEzM43',
-        'Access-Control-Allow-Origin': '*'
+        "Content-Type": "application/json"
       })
     };
-    
-    console.log("Sending this data.");    
-    console.log(this.googleRecaptchaVerificationUrl);
-    console.log(data);
-    console.log(httpOptions);
-    
-    let googleResponse = this.http.post(this.googleRecaptchaVerificationUrl, data, httpOptions);
-    console.log("Response from google.");
-    console.log(googleResponse);
 
-    return googleResponse;
+    return this.http.post<IGoogleVerificationResponse>(      
+      this.validateRecaptchaUrl,
+      data,
+      httpOptions
+    );
   }
 
-  public getClientInformation(): Observable<IUserAgent> {
-    return this.http.get<IUserAgent>(this.ipInfoUrl);
+  public postContactData(textArea: string) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+    let data = { textarea: textArea };
+    this.http.post(this.postContactDataUrl, data, httpOptions).subscribe();
   }
 }
