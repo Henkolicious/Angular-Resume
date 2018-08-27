@@ -118,6 +118,13 @@ $arr = array(
         "Description" => "Simpler to write styling then regular CSS with some finess.",
     ),
     array(
+      "Id" => 20,
+      "Language" => "Flutter / Dart - smartphone development",
+      "Knowledge" => 5,
+      "Description" => "Been trying out flutter (flutter.io) as a substitute for Xamarin (C#). Kinda like the idée of the widget tree.",
+    )
+    ,
+    array(
         "Id" => 1337,
         "Language" => "Ping pong 🏓",
         "Knowledge" => 100,
